@@ -12,7 +12,7 @@
     <artifactId>navigation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>navigation</name>
-    <description>Project with focus on control and management of registered city.</description>
+    <description>Project with focus on control and management of registered cidade.</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -50,6 +50,16 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
             <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
         </dependency>
     </dependencies>
 

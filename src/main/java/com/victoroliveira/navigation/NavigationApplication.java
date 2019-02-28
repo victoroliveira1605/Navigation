@@ -1,7 +1,7 @@
 package com.victoroliveira.navigation;
 
-import com.victoroliveira.navigation.domain.City;
-import com.victoroliveira.navigation.services.CityService;
+import com.victoroliveira.navigation.domain.Cidade;
+import com.victoroliveira.navigation.services.CidadeService;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.List;
 public class NavigationApplication implements CommandLineRunner {
 
     @Autowired
-    private CityService service;
+    private CidadeService service;
 
     public static void main(String[] args) {
         SpringApplication.run(NavigationApplication.class, args);
@@ -26,7 +26,7 @@ public class NavigationApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<City> cityList = new ArrayList<>();
+        List<Cidade> cidadeList = new ArrayList<>();
         Reader in = new FileReader("C:/Users/Victor Oliveira/Desktop/Trabalho Java - Cidades.csv");
         Iterable<CSVRecord> records = CSVFormat.EXCEL.withHeader().parse(in);
         for (CSVRecord record : records) {
@@ -41,7 +41,7 @@ public class NavigationApplication implements CommandLineRunner {
             String microregion = record.get("microregion");
             String mesoregion = record.get("mesoregion");
 
-            City obj = new City();
+            Cidade obj = new Cidade();
             obj.setIbgeId(Integer.valueOf(ibgeId));
             obj.setUf(uf);
             obj.setCity(city);
@@ -52,8 +52,8 @@ public class NavigationApplication implements CommandLineRunner {
             obj.setAlternativeNames(alternativeNames);
             obj.setMicroregion(microregion);
             obj.setMesoregion(mesoregion);
-            cityList.add(obj);
+            cidadeList.add(obj);
         }
-        service.saveListCities(cityList);
+        service.saveListCities(cidadeList);
     }
 }
